@@ -11,7 +11,7 @@
 ### Updates from azerothcore
 If it's the first time, run `git remote add upstream https://github.com/azerothcore/azerothcore-wotlk`
 Make sure you're on the `azerothcore-master` branch and then fetch modification from upstream and apply them to current branch:
-```
+```sh
 git checkout azerothcore-master
 git fetch upstream
 git rebase upstream/master
@@ -24,7 +24,7 @@ git push
 ```
 
 Now we want to update master
-```
+```sh
 git checkout master
 git merge azerothcore-master master
 # Solve potential conlicts, then commit with the correct date instead of YYYYMMDD
@@ -32,7 +32,7 @@ git commit -m "Merge from azerothcore-master YYYYMMDD"
 git push
 ```
 Do the same for the other branches (authserver/worldserver/features) from master instead of azerothcore-master
-```
+```sh
 git checkout #branch
 git merge master #branch
 # Solve potential conlicts, then commit with the correct date instead of YYYYMMDD
@@ -46,13 +46,13 @@ git push
 
 ## Testing docker
 Choose branch to test and build image locally:
-```
+```sh
 git checkout #branch
 docker build . -t test_image
 ```
 Check for error in build
 Then create the volume:
-```dockerignore
+```sh
 docker run -itd test_image:latest bash
 #if necessary add volume to docker network environment
 docker network connect server_azeroth #test_volume
@@ -60,7 +60,7 @@ docker network connect server_azeroth #test_volume
 docker cp /path/to/*.conf test_volume:/usr/local/etc/
 docker attach test_volume
 ```
-    On root of the project run `docker build .`
-    Check any error
+On root of the project run `docker build .`
+Check any error
 
 ## Release updates docker images
