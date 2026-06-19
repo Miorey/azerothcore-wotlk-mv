@@ -105,4 +105,5 @@ local.properties
 opt/
 opt/*
 modules/mod-*/
+!modules/mod-transmog
 /cmake-build-debug-docker/
