@@ -106,4 +106,5 @@ opt/
 opt/*
 modules/mod-*/
 !modules/mod-transmog
+dev_setup/.env
 /cmake-build-debug-docker/
